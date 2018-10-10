@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lista Presupuestros{% endblock title %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock stylesheets %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="display-4 titulobalnaco ml-md-2">Presupuestos</h1>
+        <div class="row mt-3">
+            <div class="col-md-12"><a href="{{ path('formularios_nuevo')}}" class="btn btn-secondary float-right">Nuevo</a></div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Fecha creación</th>
+                            <th scope="col">Sede</th>
+                            <th scope="col">Presupuesto</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for proceso in procesos %}
+                            <tr>
+                                <th scope="row">{{ proceso.numeroproceso }}</th>
+                                <td>{{ proceso.descripcion }}</td>
+                                <td>{{ proceso.fechacreacion|date('Y-m-d') }}</td>
+                                <td>{{ proceso.sede }}</td>
+                                <td>{{ proceso.presupuesto }}</td>
+                                <td><a href="{{ path('formularios_editar', {'id': proceso.idformulario})}}">Editar</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock javascripts %}

@@ -1,3 +1,19 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+formularios_index:
+    path: /
+    controller: App\Controller\HomeController::index
+
+formularios_nuevo:
+    path:     /nuevo
+    controller: App\Controller\NuevoController:nuevo 
+    
+formularios_crear:
+    path:     /crear
+    controller: App\Controller\NuevoController:crear
+    
+formularios_editar:
+    path:     /editar/{id}
+    controller: App\Controller\EditarController:editar
+    
+formularios_actualizar:
+    path:     /actualizar/{id}
+    controller: App\Controller\EditarController:actualizar
